@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Música Flow - Reproductor Web</title>
+  
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Iconos de FontAwesome y Tipografía Inter -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app-layout">
+    
+    <!-- BARRA LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+      <div class="brand-logo">
+        <i class="fa-brands fa-spotify"></i>
+        <span>Música Flow</span>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#" class="nav-item active"><i class="fa-solid fa-house"></i> Inicio</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-magnifying-glass"></i> Buscar</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-book"></i> Tu Biblioteca</a>
+      </nav>
+
+      <div class="user-playlists">
+        <div class="playlist-header">
+          <span>Tus Listas</span>
+          <i class="fa-solid fa-plus btn-add"></i>
+        </div>
+        <ul class="playlist-list">
+          <li class="playlist-item">Mis Favoritas 2026</li>
+          <li class="playlist-item">Éxitos Pop & Urbano</li>
+          <li class="playlist-item">Rock Clásico</li>
+          <li class="playlist-item">Para Entrenar</li>
+          <li class="playlist-item">Chill & Relax</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+      <header class="top-bar">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" placeholder="Buscar canciones, artistas, álbumes...">
+        </div>
+        <div class="user-profile">
+          <i class="fa-regular fa-bell"></i>
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="Usuario">
+        </div>
+      </header>
+
+      <div class="content-scroll">
+        <h1 class="welcome-title">¡Hola, qué escuchamos hoy?</h1>
+
+        <!-- SECCIÓN 1: FAVORITOS -->
+        <section class="music-section">
+          <h2>Tus Favoritos</h2>
+          <div class="cards-grid" id="favoritesGrid"></div>
+        </section>
+
+        <!-- SECCIÓN 2: NUEVOS LANZAMIENTOS -->
+        <section class="music-section">
+          <h2>Nuevos Lanzamientos</h2>
+          <div class="cards-grid" id="releasesGrid"></div>
+        </section>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- REPRODUCTOR INFERIOR (PLAYER BAR) -->
+  <footer class="player-bar">
+    <div class="track-info">
+      <img id="currentCover" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80&w=200" alt="Carátula">
+      <div class="track-details">
+        <span class="track-title" id="currentTitle">Selecciona una canción</span>
+        <span class="track-artist" id="currentArtist">Artista</span>
+      </div>
+      <i class="fa-regular fa-heart btn-like" id="likeBtn"></i>
+    </div>
+
+    <div class="player-controls">
+      <div class="control-buttons">
+        <button class="control-btn"><i class="fa-solid fa-shuffle"></i></button>
+        <button class="control-btn" id="prevBtn"><i class="fa-solid fa-backward-step"></i></button>
+        <button class="control-btn play-btn" id="playBtn"><i class="fa-solid fa-play"></i></button>
+        <button class="control-btn" id="nextBtn"><i class="fa-solid fa-forward-step"></i></button>
+        <button class="control-btn"><i class="fa-solid fa-repeat"></i></button>
+      </div>
+      <div class="progress-container">
+        <span id="currentTime">0:00</span>
+        <input type="range" id="progressBar" value="0" min="0" max="100">
+        <span id="totalTime">0:00</span>
+      </div>
+    </div>
+
+    <div class="volume-controls">
+      <i class="fa-solid fa-volume-high" id="volumeIcon"></i>
+      <input type="range" id="volumeBar" value="80" min="0" max="100">
+    </div>
+
+    <!-- Elemento de Audio HTML5 -->
+    <audio id="audioPlayer"></audio>
+  </footer>
+
+  <!-- Script JS -->
+  <script src="script.js"></script>
+</body>
+</html>
